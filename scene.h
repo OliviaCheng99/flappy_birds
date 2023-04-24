@@ -26,7 +26,6 @@ public:
     void addScore();
 
     // game start
-
     bool getGameOn() const;
     void setGameOn(bool newGameOn);
 

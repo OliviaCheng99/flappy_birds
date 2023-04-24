@@ -1,0 +1,18 @@
+[
+  {
+    "username": "Alice",
+    "password": "Pwd00001",
+    "firstName": "Alice",
+    "lastName": "Smith",
+    "birthDate": "1999-01-01",
+    "profilePicture": "alice_profile_picture.png"
+  },
+  {
+    "username": "Bob",
+    "password": "Pwd00002",
+    "firstName": "Bob",
+    "lastName": "Johnson",
+    "birthDate": "1990-05-05",
+    "profilePicture": "bob_profile_picture.jpg"
+  }
+]

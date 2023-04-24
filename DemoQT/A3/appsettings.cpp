@@ -20,13 +20,16 @@ void AppSettings::initializeDirPath()
     dirPath = dir.absolutePath(); // Get the absolute path of the parent directory
 }
 
+// Read user data from the users.json file located in the 'database' folder
 QList<User> AppSettings::readUsersFromFile()
 {
+    // Navigate to the 'database' folder that is located at the same level as the A3 folder
     QDir dir(dirPath);
     dir.cdUp(); // Move up one level to the parent directory of the A3 folder
     dir.cd("database"); // Go into the "database" directory
     QString databasePath = dir.absolutePath(); // Get the absolute path of the database directory
 
+    // Open the users.json file for reading
     QFile file(databasePath + QDir::separator() + "users.json");
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
@@ -34,13 +37,18 @@ QList<User> AppSettings::readUsersFromFile()
         return QList<User>();
     }
 
+    // Read all data from the users.json file into a QByteArray
     QByteArray jsonData = file.readAll();
     file.close();
 
+    // Parse the JSON data into a QJsonDocument
     QJsonDocument doc = QJsonDocument::fromJson(jsonData);
+    // Convert the QJsonDocument to a QJsonArray
     QJsonArray jsonArray = doc.array();
+    // Create a QList to store the User objects
     QList<User> users;
 
+    // Iterate through the QJsonArray and create User objects from the JSON data
     for (const QJsonValue &value : jsonArray)
     {
         QJsonObject obj = value.toObject();
@@ -48,8 +56,10 @@ QList<User> AppSettings::readUsersFromFile()
         users.append(user);
     }
 
+    // Return the list of User objects
     return users;
 }
+
 
 
 // Rank users based on their bestScore

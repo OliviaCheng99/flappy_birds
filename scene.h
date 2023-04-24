@@ -32,6 +32,9 @@ public:
     // score
     void incrementScore();
 
+    // set level
+    void setLevel(QString level);
+
 signals:
 
 public slots:
@@ -59,6 +62,8 @@ private:
     QGraphicsPixmapItem *gameOverPix;
     QGraphicsTextItem *scoreTextItem;
     QGraphicsTextItem *scoretTextItemInGame;
+
+    int pillarDistance;
 
 
     // QGraphicsScene interface

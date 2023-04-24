@@ -4,6 +4,9 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QPropertyAnimation>
+//#include <QSoundEffect>
+#include <QMediaPlayer>
+#include <QAudioOutput>
 
 class BirdItem : public QObject, public QGraphicsPixmapItem
 {
@@ -12,6 +15,9 @@ class BirdItem : public QObject, public QGraphicsPixmapItem
     Q_PROPERTY(qreal y READ y WRITE setY)
 
 public:
+    QMediaPlayer *birdSoundEffectPlayer;
+    QAudioOutput *birdAudioOutput;
+
     explicit BirdItem(QPixmap pixmap);
 
 
@@ -19,7 +25,11 @@ public:
     qreal rotation() const;
     qreal y() const;
 
+
 // when click space key or left mouse key, bird fly
+
+    void initBirdSound();
+
     void shootUp();
 
     void startFlying();

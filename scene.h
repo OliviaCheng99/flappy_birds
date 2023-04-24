@@ -4,18 +4,23 @@
 #include <QGraphicsScene>
 #include <QTimer>
 
-#include "pillaritem.h"
 #include "birditem.h"
+#include "pillaritem.h"
 
 class Scene : public QGraphicsScene
 {
     Q_OBJECT
 public:
     explicit Scene(QObject *parent = nullptr);
-
+    QMediaPlayer *pointSoundPlayer;
+    QAudioOutput *pointAudioOutput;
+    QMediaPlayer *hitSoundPlayer;
+    QAudioOutput *hitAudioOutput;
 
     // add bird in widget.cpp
     void addBird();
+    void startGame();
+    void initSoundEffect();
 
     // add score
     void addScore();

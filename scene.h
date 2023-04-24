@@ -12,10 +12,6 @@ class Scene : public QGraphicsScene
     Q_OBJECT
 public:
     explicit Scene(QObject *parent = nullptr);
-    QMediaPlayer *pointSoundPlayer;
-    QAudioOutput *pointAudioOutput;
-    QMediaPlayer *hitSoundPlayer;
-    QAudioOutput *hitAudioOutput;
 
     // add bird in widget.cpp
     void addBird();
@@ -65,6 +61,10 @@ private:
 
     int pillarDistance;
 
+    QMediaPlayer *pointSoundPlayer;
+    QAudioOutput *pointAudioOutput;
+    QMediaPlayer *hitSoundPlayer;
+    QAudioOutput *hitAudioOutput;
 
     // QGraphicsScene interface
 protected:

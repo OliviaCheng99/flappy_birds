@@ -1,8 +1,6 @@
 #include "birditem.h"
 #include <QTimer>
 #include <QGraphicsScene>
-//#include <QMediaPlayer>
-
 
 BirdItem::BirdItem(QPixmap pixmap) :
     wingPosition(WingPosition::Up),

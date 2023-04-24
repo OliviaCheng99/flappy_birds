@@ -19,3 +19,4 @@ void AppSettings::initializeDirPath()
     dir.cd("DemoQT"); // Go into the "DemoQT" directory
     dirPath = dir.absolutePath(); // Get the absolute path of the parent directory
 }
+

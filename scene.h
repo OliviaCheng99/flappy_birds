@@ -17,6 +17,9 @@ public:
     // add bird in widget.cpp
     void addBird();
 
+    // add score
+    void addScore();
+
     // game start
     void startGame();
     bool getGameOn() const;
@@ -51,6 +54,7 @@ private:
 
     QGraphicsPixmapItem *gameOverPix;
     QGraphicsTextItem *scoreTextItem;
+    QGraphicsTextItem *scoretTextItemInGame;
 
 
     // QGraphicsScene interface

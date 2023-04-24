@@ -28,6 +28,10 @@ Widget::Widget(QWidget *parent)
     // add bird
     scene->addBird();
 
+//    // add score
+    scene->addScore();
+
+
     ui->graphicsView->setScene(scene);
 
 

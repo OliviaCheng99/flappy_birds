@@ -10,12 +10,14 @@ PillarItem::PillarItem() :
     bottomPillar(new QGraphicsPixmapItem(QPixmap("://images/pipe.png").scaled(50,400))),
     pastBird(false)
 {
+    // set level
+    setLevel("Hard");
 
     // set pillars position
     topPillar->setPos(QPointF(0,0) - QPointF(topPillar->boundingRect().width()/2,
-                                              topPillar->boundingRect().height() + 60));
+                                              topPillar->boundingRect().height() + distance));
     bottomPillar->setPos(QPointF(0,0) + QPointF(-bottomPillar->boundingRect().width()/2,
-                                              60));
+                                              distance));
 
     addToGroup(topPillar);
     addToGroup(bottomPillar);
@@ -62,6 +64,18 @@ qreal PillarItem::x() const
 void PillarItem::freezeInPlace()
 {
     xAnimation->stop();
+}
+
+void PillarItem::setLevel(QString level)
+{
+    if(level == "Easy")
+        distance = 100;
+    else if (level == "Normal")
+        distance = 80;
+    else if(level == "Hard")
+        distance = 60;
+    else
+        distance = 80;
 }
 
 void PillarItem::setX(qreal newX)

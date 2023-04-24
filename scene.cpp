@@ -12,6 +12,7 @@ Scene::Scene(QObject *parent) : QGraphicsScene(parent),
 
 }
 
+// when game start
 void Scene::setUpPillarTimer()
 {
     pillarTimer = new QTimer(this);
@@ -31,6 +32,8 @@ void Scene::setUpPillarTimer()
     //    pillarTimer->start(1000);
 }
 
+
+// when game stop
 void Scene::freezeBirdAndPillarsInPlace()
 {
     // freeze bird
@@ -136,6 +139,8 @@ void Scene::startGame()
 
 }
 
+
+// shoot up event
 void Scene::keyPressEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_Space)

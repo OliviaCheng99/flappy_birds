@@ -18,6 +18,8 @@ public:
 
     void freezeInPlace();
 
+    void setLevel(QString level);
+
 signals:
     void collideFail();
 
@@ -40,6 +42,11 @@ private:
     qreal m_x;
 
     bool pastBird;
+
+
+    // level
+    QString level;
+    int distance;
 };
 
 #endif // PILLARITEM_H

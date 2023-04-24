@@ -14,11 +14,15 @@ public:
     explicit Scene(QObject *parent = nullptr);
 
 
+    // add bird in widget.cpp
     void addBird();
-    void startGame();
 
+    // game start
+    void startGame();
     bool getGameOn() const;
     void setGameOn(bool newGameOn);
+
+    // score
     void incrementScore();
 
 signals:
@@ -26,11 +30,15 @@ signals:
 public slots:
 
 private:
+
+    // when game over
     void showGameOverGraphics();
     void hideGameOverGraphics();
     void cleanPillars();
-    void setUpPillarTimer();
     void freezeBirdAndPillarsInPlace();
+
+    // when game start
+    void setUpPillarTimer();
 
     QTimer *pillarTimer;
     BirdItem *bird;

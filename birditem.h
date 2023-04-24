@@ -10,17 +10,16 @@ class BirdItem : public QObject, public QGraphicsPixmapItem
     Q_OBJECT
     Q_PROPERTY(qreal rotation READ rotation WRITE setRotation)
     Q_PROPERTY(qreal y READ y WRITE setY)
+
 public:
     explicit BirdItem(QPixmap pixmap);
 
+
+
     qreal rotation() const;
-
-
     qreal y() const;
 
-
-
-
+// when click space key or left mouse key, bird fly
     void shootUp();
 
     void startFlying();
@@ -57,6 +56,8 @@ private:
     QPropertyAnimation *rotationAnimation;
     QPropertyAnimation *yAnimation;
     qreal groundPosition;
+
+
 };
 
 #endif // BIRDITEM_H

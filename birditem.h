@@ -4,7 +4,6 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QPropertyAnimation>
-//#include <QSoundEffect>
 #include <QMediaPlayer>
 #include <QAudioOutput>
 
@@ -15,9 +14,6 @@ class BirdItem : public QObject, public QGraphicsPixmapItem
     Q_PROPERTY(qreal y READ y WRITE setY)
 
 public:
-    QMediaPlayer *birdSoundEffectPlayer;
-    QAudioOutput *birdAudioOutput;
-
     explicit BirdItem(QPixmap pixmap);
 
 
@@ -67,7 +63,8 @@ private:
     QPropertyAnimation *yAnimation;
     qreal groundPosition;
 
-
+    QMediaPlayer *birdSoundEffectPlayer;
+    QAudioOutput *birdAudioOutput;
 };
 
 #endif // BIRDITEM_H

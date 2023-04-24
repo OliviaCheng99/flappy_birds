@@ -28,7 +28,7 @@ Widget::Widget(QWidget *parent)
     // add bird
     scene->addBird();
 
-//    // add score
+    // add score
     scene->addScore();
 
 
@@ -46,9 +46,6 @@ void Widget::on_startGameButton_clicked()
 {
     scene->startGame();
 }
-
-
-
 
 
 void Widget::on_easyButton_clicked()

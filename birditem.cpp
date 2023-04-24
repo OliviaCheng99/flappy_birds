@@ -25,11 +25,8 @@ BirdItem::BirdItem(QPixmap pixmap) :
     yAnimation->setEasingCurve(QEasingCurve::InQuad);
     yAnimation->setDuration(1000);
 
-//    yAnimation->start();
-
     // set rotation animation
     rotationAnimation = new QPropertyAnimation(this, "rotation", this);
-//    rotateTo(90,1200,QEasingCurve::InQuad);
 
     initBirdSound();
 }

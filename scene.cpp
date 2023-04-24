@@ -48,11 +48,6 @@ void Scene::setUpPillarTimer()
 
         addItem(pillarItem);
     });
-
-    //    pillarTimer->start(1000);
-
-
-
 }
 
 

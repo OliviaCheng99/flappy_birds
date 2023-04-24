@@ -4,9 +4,11 @@
 #define LOGINWINDOW_H
 
 #include <QWidget>
+#include "user.h"
 
 class SignUp;
 class GameBoard;
+class AccountWindow;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class LoginWindow; }
@@ -26,12 +28,13 @@ private slots:
     void on_loginButton_clicked();
     void onShowLoginWindow();
     void on_signupButton_clicked();
+    void onShowMyAccount();
 
 private:
     Ui::LoginWindow *ui;
     GameBoard *gameBoard;
     SignUp* signupWin;
-
-
+    AccountWindow *accountWindow;
+    User user;
 };
 #endif // LOGINWINDOW_H

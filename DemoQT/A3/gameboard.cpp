@@ -18,7 +18,6 @@ GameBoard::~GameBoard()
 }
 
 
-
 void GameBoard::on_logoutButton_clicked()
 {
     this->hide();
@@ -30,3 +29,10 @@ void GameBoard::onShowGameBoard(){
 
 
 }
+
+void GameBoard::on_checkAccountButton_clicked()
+{
+    this->hide();
+    emit showMyAccount();
+}
+

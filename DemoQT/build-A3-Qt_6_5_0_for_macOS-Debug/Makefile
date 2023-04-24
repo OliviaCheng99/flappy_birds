@@ -673,6 +673,13 @@ moc_gameboard.cpp: ../A3/gameboard.h \
 moc_loginwindow.cpp: ../A3/loginwindow.h \
 		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../A3/user.h \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/QString \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/QDate \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qdatetime.h \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/QJsonObject \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qjsonobject.h \
 		../../../Qt/6.5.0/macos/libexec/moc
 	/Users/tacodaddy/Qt/6.5.0/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=14 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/tacodaddy/Qt/6.5.0/macos/mkspecs/macx-clang -I/Users/tacodaddy/Desktop/DemoQT/A3 -I/Users/tacodaddy/Qt/6.5.0/macos/lib/QtWidgets.framework/Headers -I/Users/tacodaddy/Qt/6.5.0/macos/lib/QtGui.framework/Headers -I/Users/tacodaddy/Qt/6.5.0/macos/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/14.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/tacodaddy/Qt/6.5.0/macos/lib ../A3/loginwindow.h -o moc_loginwindow.cpp
 
@@ -735,7 +742,14 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 accountwindow.o: ../A3/accountwindow.cpp ../A3/accountwindow.h \
 		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		ui_accountwindow.h
+		ui_accountwindow.h \
+		../A3/user.h \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/QString \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/QDate \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qdatetime.h \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/QJsonObject \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qjsonobject.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o accountwindow.o ../A3/accountwindow.cpp
 
 appsettings.o: ../A3/appsettings.cpp ../A3/appsettings.h \
@@ -756,6 +770,13 @@ gameboard.o: ../A3/gameboard.cpp ../A3/gameboard.h \
 main.o: ../A3/main.cpp ../A3/loginwindow.h \
 		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		../A3/user.h \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/QString \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/QDate \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qdatetime.h \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/QJsonObject \
+		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qjsonobject.h \
 		../A3/appsettings.h \
 		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/QObject \
 		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qobject.h \
@@ -768,12 +789,6 @@ main.o: ../A3/main.cpp ../A3/loginwindow.h \
 loginwindow.o: ../A3/loginwindow.cpp ../A3/loginwindow.h \
 		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/qwidget.h \
-		../A3/gameboard.h \
-		../A3/signup.h \
-		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/QFileDialog \
-		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/qfiledialog.h \
-		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
-		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../A3/user.h \
 		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/QString \
 		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qstring.h \
@@ -781,10 +796,17 @@ loginwindow.o: ../A3/loginwindow.cpp ../A3/loginwindow.h \
 		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qdatetime.h \
 		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/QJsonObject \
 		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qjsonobject.h \
+		../A3/gameboard.h \
+		../A3/signup.h \
+		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/QFileDialog \
+		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/qfiledialog.h \
+		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/qmessagebox.h \
 		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/QJsonDocument \
 		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qjsondocument.h \
 		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/QJsonArray \
 		../../../Qt/6.5.0/macos/lib/QtCore.framework/Headers/qjsonarray.h \
+		../A3/accountwindow.h \
 		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/QPushButton \
 		../../../Qt/6.5.0/macos/lib/QtWidgets.framework/Headers/qpushbutton.h \
 		ui_loginwindow.h \

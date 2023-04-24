@@ -11,8 +11,13 @@
 class User
 {
 public:
+<<<<<<< HEAD
+    explicit User(const QString &username,const QString &password,const QString &firstName,const QString &lastName,const QDate &birthDate,const QString &profilePicturePath);
+    explicit User();
+=======
     explicit User(const QString &username,const QString &password,const QString &firstName,const QString &lastName,const QDate &birthDate,const QString &profilePicturePath,int lastScore = 0,
                   int bestScore = 0,int ranking = 0);
+>>>>>>> ranking
 
     QString getUsername() const;
     QString getPassword() const;

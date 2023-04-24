@@ -32,6 +32,11 @@ int User::getBestScore() const { return my_bestScore; }
 int User::getRanking() const { return my_ranking; }
 void User::setRanking(int ranking) { my_ranking = ranking; }
 
+
+
+User::User(){}
+
+
 QJsonObject User::toJsonObject() const
 {
     QJsonObject json;

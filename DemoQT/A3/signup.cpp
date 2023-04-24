@@ -18,7 +18,7 @@ SignUp::~SignUp()
 
 void SignUp::on_picButton_clicked()
 {
-    QString dir_Path = AppSettings::dirPath + "/test_resources/"; // default user path
+    QString dir_Path = AppSettings::dirPath; // default user path
     QString imagePath = QFileDialog::getOpenFileName(
         this,
         "profile picture",

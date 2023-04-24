@@ -30,6 +30,7 @@ QString User::getProfilePicturePath() const { return my_profilePicturePath; }
 int User::getLastScore() const { return my_lastScore; }
 int User::getBestScore() const { return my_bestScore; }
 int User::getRanking() const { return my_ranking; }
+void User::setRanking(int ranking) { my_ranking = ranking; }
 
 QJsonObject User::toJsonObject() const
 {

@@ -6,7 +6,10 @@
 #include <QObject>
 #include<QDir>
 #include<QApplication>
-
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QFile>
+#include "user.h"
 
 
 
@@ -17,8 +20,10 @@ class AppSettings : public QObject
 public:
     explicit AppSettings(QObject *parent = nullptr);
     static void initializeDirPath();
-    static QString dirPath;
+    static QList<User> readUsersFromFile();
+    static void rankUsersByBestScore(QList<User> &users);
 
+    static QString dirPath;
 };
 
 

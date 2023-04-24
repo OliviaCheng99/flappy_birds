@@ -23,6 +23,7 @@ public:
     int getLastScore() const;
     int getBestScore() const;
     int getRanking() const;
+    void setRanking(int ranking);
 
 
     QJsonObject toJsonObject() const;

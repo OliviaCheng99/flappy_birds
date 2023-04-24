@@ -17,12 +17,20 @@ public:
     QMediaPlayer *hitSoundPlayer;
     QAudioOutput *hitAudioOutput;
 
+    // add bird in widget.cpp
     void addBird();
     void startGame();
     void initSoundEffect();
 
+    // add score
+    void addScore();
+
+    // game start
+    void startGame();
     bool getGameOn() const;
     void setGameOn(bool newGameOn);
+
+    // score
     void incrementScore();
 
 signals:
@@ -30,11 +38,15 @@ signals:
 public slots:
 
 private:
+
+    // when game over
     void showGameOverGraphics();
     void hideGameOverGraphics();
     void cleanPillars();
-    void setUpPillarTimer();
     void freezeBirdAndPillarsInPlace();
+
+    // when game start
+    void setUpPillarTimer();
 
     QTimer *pillarTimer;
     BirdItem *bird;
@@ -47,6 +59,7 @@ private:
 
     QGraphicsPixmapItem *gameOverPix;
     QGraphicsTextItem *scoreTextItem;
+    QGraphicsTextItem *scoretTextItemInGame;
 
 
     // QGraphicsScene interface

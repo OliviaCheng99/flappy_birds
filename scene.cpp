@@ -32,6 +32,7 @@ void Scene::initSoundEffect(){
     hitAudioOutput->setVolume(80);
 }
 
+// when game start
 void Scene::setUpPillarTimer()
 {
     pillarTimer = new QTimer(this);
@@ -49,8 +50,13 @@ void Scene::setUpPillarTimer()
     });
 
     //    pillarTimer->start(1000);
+
+
+
 }
 
+
+// when game stop
 void Scene::freezeBirdAndPillarsInPlace()
 {
     // freeze bird
@@ -84,6 +90,8 @@ void Scene::incrementScore()
     if(score > bestScore)
         bestScore = score;
     qDebug() << "Score: " << score << " Best Score: " << bestScore;
+    scoretTextItemInGame->setPlainText(QString("Score: ") + QString::number(score) + QString("\nBest Score : " + QString::number(bestScore)));
+
 }
 
 void Scene::showGameOverGraphics()
@@ -106,6 +114,10 @@ void Scene::showGameOverGraphics()
 
     scoreTextItem->setPos(QPointF(0,0) - QPointF(scoreTextItem->boundingRect().width()/2,
                                                 -gameOverPix->boundingRect().height()/2));
+    if(scoretTextItemInGame){
+        scoretTextItemInGame->setPlainText(QString(""));
+    }
+    
     hitSoundPlayer->play();// play hit sound effect
 }
 
@@ -120,6 +132,9 @@ void Scene::hideGameOverGraphics()
         removeItem(scoreTextItem);
         delete scoreTextItem;
         scoreTextItem = nullptr;
+    }
+    if(scoretTextItemInGame){
+        scoretTextItemInGame->setPlainText(QString("Score: ") + QString::number(score) + QString("\nBest Score : " + QString::number(bestScore)));
     }
 }
 
@@ -142,6 +157,16 @@ void Scene::addBird()
 
 }
 
+void Scene::addScore()
+{
+    scoretTextItemInGame = new QGraphicsTextItem();
+    scoretTextItemInGame->setPlainText(QString("Score: ") + QString::number(score) + QString("\nBest Score : " + QString::number(bestScore)));
+    scoretTextItemInGame->setDefaultTextColor(Qt::yellow);
+    scoretTextItemInGame->setFont(QFont("times", 16));
+    scoretTextItemInGame->setPos(-200,-250);
+    addItem(scoretTextItemInGame);
+}
+
 void Scene::startGame()
 {
     // start bird animation
@@ -157,6 +182,8 @@ void Scene::startGame()
 
 }
 
+
+// shoot up event
 void Scene::keyPressEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_Space)

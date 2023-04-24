@@ -20,11 +20,13 @@ public:
 
     explicit BirdItem(QPixmap pixmap);
 
+
+
     qreal rotation() const;
-
-
     qreal y() const;
 
+
+// when click space key or left mouse key, bird fly
 
     void initBirdSound();
 
@@ -64,6 +66,8 @@ private:
     QPropertyAnimation *rotationAnimation;
     QPropertyAnimation *yAnimation;
     qreal groundPosition;
+
+
 };
 
 #endif // BIRDITEM_H

@@ -11,6 +11,7 @@ Widget::Widget(QWidget *parent)
     ui->setupUi(this);
 
     // set scene
+    // window size: 400x500
     scene = new Scene(this);
     scene->setSceneRect(-200,-250,400,500);
 
@@ -20,12 +21,16 @@ Widget::Widget(QWidget *parent)
     scene->addItem(backgroundItem);
     backgroundItem->setPos(QPointF(0,0) - QPointF(backgroundItem->boundingRect().width()/2, backgroundItem->boundingRect().height()/2));
 
-    // set grid
-    scene->addLine(-400,0,400,0,QPen(Qt::blue));
-    scene->addLine(0,-400,0,400,QPen(Qt::blue));
+    // set grid ( delete after finish)
+//    scene->addLine(-400,0,400,0,QPen(Qt::blue));
+//    scene->addLine(0,-400,0,400,QPen(Qt::blue));
 
     // add bird
     scene->addBird();
+
+//    // add score
+    scene->addScore();
+
 
     ui->graphicsView->setScene(scene);
 

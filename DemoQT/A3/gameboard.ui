@@ -91,7 +91,7 @@
     <string>start game</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="checkAccountButton">
    <property name="geometry">
     <rect>
      <x>660</x>
@@ -116,7 +116,7 @@
   <zorder>label_3</zorder>
   <zorder>label_4</zorder>
   <zorder>startGame</zorder>
-  <zorder>pushButton</zorder>
+  <zorder>checkAccountButton</zorder>
  </widget>
  <resources/>
  <connections/>

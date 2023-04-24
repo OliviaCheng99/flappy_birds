@@ -7,6 +7,8 @@
 
 #include <QWidget>
 
+class User;
+
 namespace Ui {
 class AccountWindow;
 }
@@ -18,6 +20,7 @@ class AccountWindow : public QWidget
 public:
     explicit AccountWindow(QWidget *parent = nullptr);
     ~AccountWindow();
+    void setUser(const User &user);
 
 private:
     Ui::AccountWindow *ui;

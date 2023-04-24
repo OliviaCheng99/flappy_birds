@@ -12,6 +12,7 @@ class User
 {
 public:
     explicit User(const QString &username,const QString &password,const QString &firstName,const QString &lastName,const QDate &birthDate,const QString &profilePicturePath);
+    explicit User();
 
     QString getUsername() const;
     QString getPassword() const;

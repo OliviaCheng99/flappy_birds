@@ -29,7 +29,40 @@ void SignUp::on_picButton_clicked()
     if (!imagePath.isEmpty())
     {
         // Store the image path
-        this->profilePicturePath = imagePath;
+        // Extract file extension
+        QFileInfo fileInfo(imagePath);
+        QString fileExtension = fileInfo.suffix();
+
+        // Get the username from the form
+        QString username = ui->usernameLineEdit->text();
+
+        // Check if the username is not empty
+        if (username.isEmpty())
+        {
+            // Show a warning message to the user
+            QMessageBox::warning(this, "Warning", "Please enter a username before selecting a profile picture.");
+            return;
+        }
+
+        // Construct the new file name
+        QString newFileName = username + "_profile_picture." + fileExtension;
+
+        // Construct the destination path
+        QString destinationPath = AppSettings::dirPath + "/database/" + newFileName; // maybe here create an image cache dir
+
+        // Copy the file to the destination path
+        if (QFile::copy(imagePath, destinationPath))
+        {
+            // Store the new file path
+            this->profilePicturePath = destinationPath;
+        }
+        else
+        {
+            // Handle error if the file copy fails
+            QMessageBox::warning(this, "Error", "Database crashes!");
+            return;
+        }
+
     }
 }
 

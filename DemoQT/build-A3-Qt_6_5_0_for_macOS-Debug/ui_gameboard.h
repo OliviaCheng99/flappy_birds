@@ -26,7 +26,7 @@ public:
     QLabel *label_4;
     QPushButton *logoutButton;
     QPushButton *startGame;
-    QPushButton *pushButton;
+    QPushButton *checkAccountButton;
 
     void setupUi(QWidget *GameBoard)
     {
@@ -51,20 +51,20 @@ public:
         startGame = new QPushButton(GameBoard);
         startGame->setObjectName("startGame");
         startGame->setGeometry(QRect(420, 290, 100, 32));
-        pushButton = new QPushButton(GameBoard);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(660, 50, 100, 32));
+        checkAccountButton = new QPushButton(GameBoard);
+        checkAccountButton->setObjectName("checkAccountButton");
+        checkAccountButton->setGeometry(QRect(660, 50, 100, 32));
         QFont font;
         font.setBold(true);
         font.setItalic(true);
-        pushButton->setFont(font);
+        checkAccountButton->setFont(font);
         logoutButton->raise();
         label->raise();
         label_2->raise();
         label_3->raise();
         label_4->raise();
         startGame->raise();
-        pushButton->raise();
+        checkAccountButton->raise();
 
         retranslateUi(GameBoard);
 
@@ -80,7 +80,7 @@ public:
         label_4->setText(QCoreApplication::translate("GameBoard", "TextLabel", nullptr));
         logoutButton->setText(QCoreApplication::translate("GameBoard", "logout", nullptr));
         startGame->setText(QCoreApplication::translate("GameBoard", "start game", nullptr));
-        pushButton->setText(QCoreApplication::translate("GameBoard", "my account", nullptr));
+        checkAccountButton->setText(QCoreApplication::translate("GameBoard", "my account", nullptr));
     } // retranslateUi
 
 };

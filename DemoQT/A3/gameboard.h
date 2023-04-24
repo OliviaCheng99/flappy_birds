@@ -22,6 +22,7 @@ public:
 
 signals:
     void showLoginWindow();
+    void showMyAccount();
 
 public slots:
     void onShowGameBoard();
@@ -30,6 +31,8 @@ private slots:
     //void onAccountButtonClicked();
 
     void on_logoutButton_clicked();
+
+    void on_checkAccountButton_clicked();
 
 private:
     Ui::GameBoard *ui;

@@ -22,6 +22,11 @@ QString User::getLastName() const { return my_lastName; }
 QDate User::getBirthDate() const { return my_birthDate; }
 QString User::getProfilePicturePath() const { return my_profilePicturePath; }
 
+
+
+User::User(){}
+
+
 QJsonObject User::toJsonObject() const
 {
     QJsonObject json;

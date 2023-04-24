@@ -26,12 +26,15 @@ public:
     void addScore();
 
     // game start
-    void startGame();
+
     bool getGameOn() const;
     void setGameOn(bool newGameOn);
 
     // score
     void incrementScore();
+
+    // set level
+    void setLevel(QString level);
 
 signals:
 
@@ -60,6 +63,8 @@ private:
     QGraphicsPixmapItem *gameOverPix;
     QGraphicsTextItem *scoreTextItem;
     QGraphicsTextItem *scoretTextItemInGame;
+
+    int pillarDistance;
 
 
     // QGraphicsScene interface

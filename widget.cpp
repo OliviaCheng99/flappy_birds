@@ -34,7 +34,6 @@ Widget::Widget(QWidget *parent)
 
     ui->graphicsView->setScene(scene);
 
-
 }
 
 Widget::~Widget()
@@ -46,5 +45,26 @@ Widget::~Widget()
 void Widget::on_startGameButton_clicked()
 {
     scene->startGame();
+}
+
+
+
+
+
+void Widget::on_easyButton_clicked()
+{
+    scene->setLevel("Easy");
+}
+
+
+void Widget::on_normalButton_clicked()
+{
+    scene->setLevel("Normal");
+}
+
+
+void Widget::on_hardButton_clicked()
+{
+    scene->setLevel("Hard");
 }
 

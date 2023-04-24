@@ -7,7 +7,7 @@
 
 
 Scene::Scene(QObject *parent) : QGraphicsScene(parent),
-    gameOn(false), score(0), bestScore(0)
+    gameOn(false), score(0), bestScore(0), pillarDistance(90)
 
 {
     setUpPillarTimer();
@@ -37,7 +37,7 @@ void Scene::setUpPillarTimer()
 {
     pillarTimer = new QTimer(this);
     connect(pillarTimer, &QTimer::timeout,[=](){
-        PillarItem * pillarItem = new PillarItem();
+        PillarItem * pillarItem = new PillarItem(pillarDistance);
         connect(pillarItem, &PillarItem::collideFail,[=](){
             pillarTimer->stop();
             freezeBirdAndPillarsInPlace();
@@ -85,13 +85,33 @@ void Scene::setGameOn(bool newGameOn)
 
 void Scene::incrementScore()
 {
-    score++;
+
+    if(pillarDistance == 120)
+        score++;
+    else if(pillarDistance == 90)
+        score += 2;
+    else
+        score += 3;
+
+
     pointSoundPlayer->play();
     if(score > bestScore)
         bestScore = score;
     qDebug() << "Score: " << score << " Best Score: " << bestScore;
     scoretTextItemInGame->setPlainText(QString("Score: ") + QString::number(score) + QString("\nBest Score : " + QString::number(bestScore)));
 
+}
+
+void Scene::setLevel(QString level)
+{
+    if(level == "Easy")
+        pillarDistance = 120;
+    else if (level == "Normal")
+        pillarDistance = 90;
+    else if(level == "Hard")
+        pillarDistance = 60;
+    else
+        pillarDistance = 90;
 }
 
 void Scene::showGameOverGraphics()
@@ -113,7 +133,7 @@ void Scene::showGameOverGraphics()
     addItem(scoreTextItem);
 
     scoreTextItem->setPos(QPointF(0,0) - QPointF(scoreTextItem->boundingRect().width()/2,
-                                                -gameOverPix->boundingRect().height()/2));
+                                                  -gameOverPix->boundingRect().height()/2));
     if(scoretTextItemInGame){
         scoretTextItemInGame->setPlainText(QString(""));
     }

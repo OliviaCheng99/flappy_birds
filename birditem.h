@@ -4,13 +4,20 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QPropertyAnimation>
+//#include <QSoundEffect>
+#include <QMediaPlayer>
+#include <QAudioOutput>
 
 class BirdItem : public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
     Q_PROPERTY(qreal rotation READ rotation WRITE setRotation)
     Q_PROPERTY(qreal y READ y WRITE setY)
+
 public:
+    QMediaPlayer *birdSoundEffectPlayer;
+    QAudioOutput *birdAudioOutput;
+
     explicit BirdItem(QPixmap pixmap);
 
     qreal rotation() const;
@@ -19,7 +26,7 @@ public:
     qreal y() const;
 
 
-
+    void initBirdSound();
 
     void shootUp();
 

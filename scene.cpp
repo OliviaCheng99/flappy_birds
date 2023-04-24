@@ -2,6 +2,8 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QKeyEvent>
 #include <QDebug>
+#include <chrono>
+#include <thread>
 
 
 Scene::Scene(QObject *parent) : QGraphicsScene(parent),
@@ -9,7 +11,25 @@ Scene::Scene(QObject *parent) : QGraphicsScene(parent),
 
 {
     setUpPillarTimer();
+    initSoundEffect();
+}
 
+void Scene::initSoundEffect(){
+    pointSoundPlayer = new QMediaPlayer;
+    pointAudioOutput = new QAudioOutput;
+    hitSoundPlayer = new QMediaPlayer;
+    hitAudioOutput = new QAudioOutput;
+
+    // initialize sound effects
+    pointSoundPlayer->setAudioOutput(pointAudioOutput);
+    pointSoundPlayer->setSource(QUrl("qrc:/sounds/point.mp3"));
+    pointSoundPlayer->setPlaybackRate(2);
+    pointAudioOutput->setVolume(100);
+
+    hitSoundPlayer->setAudioOutput(hitAudioOutput);
+    hitSoundPlayer->setSource(QUrl("qrc:/sounds/hit.mp3"));
+    hitSoundPlayer->setPlaybackRate(0.5);
+    hitAudioOutput->setVolume(80);
 }
 
 void Scene::setUpPillarTimer()
@@ -60,6 +80,7 @@ void Scene::setGameOn(bool newGameOn)
 void Scene::incrementScore()
 {
     score++;
+    pointSoundPlayer->play();
     if(score > bestScore)
         bestScore = score;
     qDebug() << "Score: " << score << " Best Score: " << bestScore;
@@ -85,7 +106,7 @@ void Scene::showGameOverGraphics()
 
     scoreTextItem->setPos(QPointF(0,0) - QPointF(scoreTextItem->boundingRect().width()/2,
                                                 -gameOverPix->boundingRect().height()/2));
-
+    hitSoundPlayer->play();// play hit sound effect
 }
 
 void Scene::hideGameOverGraphics()

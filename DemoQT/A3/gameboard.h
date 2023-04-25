@@ -24,7 +24,6 @@ public:
 signals:
     void showLoginWindow();
     void showMyAccount();
-//    void showGameWindow();
 
 public slots:
     void onShowGameBoard();
@@ -41,7 +40,7 @@ private slots:
 private:
     Ui::GameBoard *ui;
     LoginWindow *loginWindow;
-//    Widget gameWidget;
+    Widget gameWidget;
 };
 
 #endif // GAMEBOARD_H

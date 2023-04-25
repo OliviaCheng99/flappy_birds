@@ -5,17 +5,18 @@
 #include "scene.h"
 #include "birditem.h"
 
-PillarItem::PillarItem() :
+PillarItem::PillarItem(int distance) :
     topPillar(new QGraphicsPixmapItem(QPixmap("://images/pipe.png").scaled(50,400))),
     bottomPillar(new QGraphicsPixmapItem(QPixmap("://images/pipe.png").scaled(50,400))),
     pastBird(false)
 {
-
+    this->distance = distance;
     // set pillars position
     topPillar->setPos(QPointF(0,0) - QPointF(topPillar->boundingRect().width()/2,
-                                              topPillar->boundingRect().height() + 60));
+
+                                              topPillar->boundingRect().height() + distance));
     bottomPillar->setPos(QPointF(0,0) + QPointF(-bottomPillar->boundingRect().width()/2,
-                                              60));
+                                              distance));
 
     addToGroup(topPillar);
     addToGroup(bottomPillar);
@@ -63,6 +64,7 @@ void PillarItem::freezeInPlace()
 {
     xAnimation->stop();
 }
+
 
 void PillarItem::setX(qreal newX)
 {

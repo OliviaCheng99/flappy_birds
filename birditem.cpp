@@ -25,13 +25,20 @@ BirdItem::BirdItem(QPixmap pixmap) :
     yAnimation->setEasingCurve(QEasingCurve::InQuad);
     yAnimation->setDuration(1000);
 
-//    yAnimation->start();
-
     // set rotation animation
     rotationAnimation = new QPropertyAnimation(this, "rotation", this);
-//    rotateTo(90,1200,QEasingCurve::InQuad);
 
+    initBirdSound();
+}
 
+void BirdItem::initBirdSound(){
+    birdSoundEffectPlayer = new QMediaPlayer;
+    birdAudioOutput = new QAudioOutput;
+    // set sound effect of flapping
+    birdSoundEffectPlayer->setAudioOutput(birdAudioOutput);
+    birdSoundEffectPlayer->setSource(QUrl("qrc:/sounds/flap.mp3"));
+    birdSoundEffectPlayer->setPlaybackRate(2);
+    birdAudioOutput->setVolume(100);
 }
 
 void BirdItem::updatePixmap()
@@ -131,6 +138,9 @@ void BirdItem::shootUp()
     yAnimation->setEndValue(curPosY - scene()->sceneRect().height()/8);
     yAnimation->setEasingCurve(QEasingCurve::OutQuad);
     yAnimation->setDuration(285);
+
+    // play the sound effect
+    birdSoundEffectPlayer->play();
 
     connect(yAnimation, &QPropertyAnimation::finished, [=](){
         fallToGroundIfNecessary();

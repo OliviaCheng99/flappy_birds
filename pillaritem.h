@@ -11,12 +11,13 @@ class PillarItem :public QObject, public QGraphicsItemGroup
     Q_PROPERTY(qreal x READ x WRITE setX)
 
 public:
-    explicit PillarItem();
+    explicit PillarItem(int distance);
     ~PillarItem();
 
     qreal x() const;
 
     void freezeInPlace();
+
 
 signals:
     void collideFail();
@@ -40,6 +41,11 @@ private:
     qreal m_x;
 
     bool pastBird;
+
+
+    // level
+    QString level;
+    int distance;
 };
 
 #endif // PILLARITEM_H

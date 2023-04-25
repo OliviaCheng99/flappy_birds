@@ -5,6 +5,7 @@
 
 #include <QWidget>
 #include "widget.h"
+#include "user.h"
 
 class LoginWindow;
 
@@ -25,6 +26,7 @@ signals:
     void showLoginWindow();
     void showMyAccount();
 
+
 public slots:
     void onShowGameBoard();
 //    void init();
@@ -41,6 +43,9 @@ private slots:
 private:
     Ui::GameBoard *ui;
     LoginWindow *loginWindow;
+    User *alice;
+    int bestScore;
+    int lastScore;
 };
 
 #endif // GAMEBOARD_H

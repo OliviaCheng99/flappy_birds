@@ -31,6 +31,11 @@ public:
     // set level
     void setLevel(QString level);
 
+    int score;
+    int bestScore;
+
+    int setBestScore(int newScore);
+
 signals:
 
 public slots:
@@ -52,8 +57,7 @@ private:
 
     bool gameOn;
 
-    int score;
-    int bestScore;
+
 
     QGraphicsPixmapItem *gameOverPix;
     QGraphicsTextItem *scoreTextItem;

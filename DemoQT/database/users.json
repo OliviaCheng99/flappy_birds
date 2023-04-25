@@ -11,8 +11,10 @@
         "birthDate": "2097-01-01",
         "firstName": "Alice",
         "lastName": "Lee",
+        "bestScore": 18,
         "password": "Pwd00001",
         "profilePicturePath": "alice123_profile_picture.png",
+        "ranking": 1,
         "username": "alice123"
     },
     {

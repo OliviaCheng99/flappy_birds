@@ -6,7 +6,7 @@ GameBoard::GameBoard(QWidget *parent) :
     ui(new Ui::GameBoard)
 {
     //    bestScore = alice->getBestScore();
-    bestScore = my_user.getBestScore();
+
     //    ui->ranking->setNum();
     ui->setupUi(this);
 }
@@ -48,6 +48,7 @@ void GameBoard::on_checkAccountButton_clicked()
 
 void GameBoard::on_startGame_clicked()
 {
+    bestScore = my_user.getBestScore();
     Widget *newGameWidget = new Widget();
     newGameWidget->setBestScore(bestScore);
 
@@ -70,5 +71,5 @@ void GameBoard::on_startGame_clicked()
 void GameBoard:: setUser(User user){
     my_user = user;
     ui->ranking->setNum(user.getRanking());
-    ui->lastScore->setNum(user.getLastScore());
+    ui->bestScore->setNum(user.getBestScore());
 }

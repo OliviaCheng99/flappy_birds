@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>GameBoard</string>
   </property>
-  <widget class="QLabel" name="lastScoreLabel">
+  <widget class="QLabel" name="bestScoreLabel">
    <property name="geometry">
     <rect>
      <x>290</x>
@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Last Score</string>
+    <string>Best Score</string>
    </property>
   </widget>
   <widget class="QLabel" name="rankingLabel">
@@ -39,7 +39,7 @@
     <string>Ranking</string>
    </property>
   </widget>
-  <widget class="QLabel" name="lastScore">
+  <widget class="QLabel" name="bestScore">
    <property name="geometry">
     <rect>
      <x>440</x>
@@ -111,9 +111,9 @@
    </property>
   </widget>
   <zorder>logoutButton</zorder>
-  <zorder>lastScoreLabel</zorder>
+  <zorder>bestScoreLabel</zorder>
   <zorder>rankingLabel</zorder>
-  <zorder>lastScore</zorder>
+  <zorder>bestScore</zorder>
   <zorder>ranking</zorder>
   <zorder>startGame</zorder>
   <zorder>checkAccountButton</zorder>

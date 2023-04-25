@@ -22,22 +22,18 @@ class LoginWindow : public QWidget
 public:
     LoginWindow(QWidget *parent = nullptr);
     ~LoginWindow();
+    User user;
 
 signals:
 
 private slots:
     void on_loginButton_clicked();
-    void onShowLoginWindow();
     void on_signupButton_clicked();
     void onShowMyAccount();
-
     void on_pushButton_clicked();
 
 private:
     Ui::LoginWindow *ui;
-    GameBoard *gameBoard;
-    SignUp* signupWin;
-    AccountWindow *accountWindow;
-    User user;
+
 };
 #endif // LOGINWINDOW_H

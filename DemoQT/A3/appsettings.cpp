@@ -6,6 +6,7 @@ QString AppSettings::dirPath;
 AppSettings::AppSettings(QObject *parent)
     : QObject{parent}
 {
+
 }
 
 void AppSettings::initializeDirPath()

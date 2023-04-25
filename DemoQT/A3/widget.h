@@ -15,6 +15,7 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
+    void init();
 
 signals:
     void showGameBoard();
@@ -25,6 +26,7 @@ private slots:
     void on_normalButton_clicked();
     void on_hardButton_clicked();
     void on_backButton_clicked();
+
 
 private:
     Ui::Widget *ui;

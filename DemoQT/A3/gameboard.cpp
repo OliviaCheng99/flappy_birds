@@ -6,16 +6,13 @@ GameBoard::GameBoard(QWidget *parent) :
     ui(new Ui::GameBoard)
 {
     ui->setupUi(this);
-
     connect(ui->logoutButton, &QPushButton::clicked, this, &GameBoard::on_logoutButton_clicked);
-    connect(&gameWidget, &Widget::showGameBoard, this, &GameBoard::onShowGameBoard);
 }
 
 GameBoard::~GameBoard()
 {
     delete ui;
 }
-
 
 void GameBoard::on_logoutButton_clicked()
 {
@@ -24,6 +21,8 @@ void GameBoard::on_logoutButton_clicked()
 }
 
 void GameBoard::onShowGameBoard(){
+    qDebug() << "here";
+    this->contentsRect();
     this->show();
 }
 
@@ -36,6 +35,12 @@ void GameBoard::on_checkAccountButton_clicked()
 
 void GameBoard::on_startGame_clicked()
 {
+    Widget *newGameWidget = new Widget();
+
+    connect(newGameWidget, &Widget::showGameBoard, [=](){
+        this->show();
+    });
+
+    newGameWidget->show();
     this->hide();
-    gameWidget.show();
 }

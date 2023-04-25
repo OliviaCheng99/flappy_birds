@@ -5,16 +5,16 @@ GameBoard::GameBoard(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameBoard)
 {
-//    bestScore = alice->getBestScore();
-    bestScore = 7;
-
+    //    bestScore = alice->getBestScore();
+    bestScore = my_user.getBestScore();
+    //    ui->ranking->setNum();
     ui->setupUi(this);
 }
 
-void GameBoard::setUser(const User &user) {
-    ui->ranking->setNum(user.getRanking());
-    ui->lastScore->setNum(user.getLastScore());
-}
+//void GameBoard::setUser(const User &user) {
+//    ui->ranking->setNum(user.getRanking());
+//    ui->lastScore->setNum(user.getLastScore());
+//}
 
 GameBoard::~GameBoard()
 {
@@ -38,6 +38,7 @@ void GameBoard::on_checkAccountButton_clicked()
     this->hide();
     AccountWindow *accountWindow = new AccountWindow();
     accountWindow->setUser(my_user);
+
     connect(accountWindow, &AccountWindow::backButtonClicked, [=]{
         this->show();
     });
@@ -56,7 +57,7 @@ void GameBoard::on_startGame_clicked()
 
         if(newGameWidget->getBestScore() > bestScore)
             bestScore = newGameWidget->getBestScore();
-//        alice->updateScore(bestScore);
+        my_user.updateScore(bestScore);
         qDebug() << "last score: " << lastScore << " " << "best score: " << bestScore << "\n" ;
 
         this->show();
@@ -68,4 +69,6 @@ void GameBoard::on_startGame_clicked()
 
 void GameBoard:: setUser(User user){
     my_user = user;
+    ui->ranking->setNum(user.getRanking());
+    ui->lastScore->setNum(user.getLastScore());
 }

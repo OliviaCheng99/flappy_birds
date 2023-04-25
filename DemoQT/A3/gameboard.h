@@ -27,6 +27,7 @@ signals:
     void showLoginWindow();
     void showMyAccount();
 
+
 public slots:
     void onShowGameBoard();
 //    void init();
@@ -41,7 +42,8 @@ private:
     Ui::GameBoard *ui;
     LoginWindow *loginWindow;
     User my_user;
-
+    int bestScore;
+    int lastScore;
 };
 
 #endif // GAMEBOARD_H

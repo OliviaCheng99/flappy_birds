@@ -32,6 +32,8 @@ private slots:
     void on_signupButton_clicked();
     void onShowMyAccount();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::LoginWindow *ui;
     //GameBoard *gameBoard;

@@ -119,3 +119,17 @@ void LoginWindow::onShowMyAccount()
    // accountWindow->show();
 }
 
+
+void LoginWindow::on_pushButton_clicked()
+{
+    Widget *newGameWidget = new Widget();
+
+
+    connect(newGameWidget, &Widget::showGameBoard, [=](){
+        this->show();
+    });
+
+    newGameWidget->show();
+    this->hide();
+}
+

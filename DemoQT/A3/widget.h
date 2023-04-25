@@ -17,6 +17,10 @@ public:
     ~Widget();
     void init();
 
+    int getLastScore();
+    int getBestScore();
+    int setBestScore(int newScore);
+
 signals:
     void showGameBoard();
 

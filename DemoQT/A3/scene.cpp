@@ -43,6 +43,8 @@ void Scene::setUpPillarTimer()
             freezeBirdAndPillarsInPlace();
             setGameOn(false);
             showGameOverGraphics();
+            scoretTextItemInGame = nullptr;
+
 
         });
 
@@ -92,7 +94,7 @@ void Scene::incrementScore()
     pointSoundPlayer->play();
     if(score > bestScore)
         bestScore = score;
-    qDebug() << "Score: " << score << " Best Score: " << bestScore;
+//    qDebug() << "Score: " << score << " Best Score: " << bestScore;
     scoretTextItemInGame->setPlainText(QString("Score: ") + QString::number(score) + QString("\nBest Score : " + QString::number(bestScore)));
 
 }
@@ -107,6 +109,11 @@ void Scene::setLevel(QString level)
         pillarDistance = 60;
     else
         pillarDistance = 90;
+}
+
+int Scene::setBestScore(int newScore)
+{
+    bestScore = newScore;
 }
 
 void Scene::showGameOverGraphics()
@@ -180,6 +187,7 @@ void Scene::addScore()
     scoretTextItemInGame->setFont(QFont("times", 16));
     scoretTextItemInGame->setPos(-200,-250);
     addItem(scoretTextItemInGame);
+
 }
 
 void Scene::startGame()

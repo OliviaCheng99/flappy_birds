@@ -92,7 +92,7 @@ void Scene::incrementScore()
     pointSoundPlayer->play();
     if(score > bestScore)
         bestScore = score;
-    qDebug() << "Score: " << score << " Best Score: " << bestScore;
+//    qDebug() << "Score: " << score << " Best Score: " << bestScore;
     scoretTextItemInGame->setPlainText(QString("Score: ") + QString::number(score) + QString("\nBest Score : " + QString::number(bestScore)));
 
 }
@@ -107,6 +107,11 @@ void Scene::setLevel(QString level)
         pillarDistance = 60;
     else
         pillarDistance = 90;
+}
+
+int Scene::setBestScore(int newScore)
+{
+    bestScore = newScore;
 }
 
 void Scene::showGameOverGraphics()

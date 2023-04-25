@@ -28,8 +28,7 @@ Widget::Widget(QWidget *parent)
     // add bird
     scene->addBird();
 
-    // add score
-    scene->addScore();
+
 
     ui->graphicsView->setScene(scene);
 }
@@ -62,6 +61,21 @@ void Widget::init(){
 
 }
 
+int Widget::getLastScore()
+{
+    return scene->score;
+}
+
+int Widget::getBestScore(){
+    return scene->bestScore;
+}
+
+int Widget::setBestScore(int newScore)
+{
+    scene->setBestScore(newScore);
+}
+
+
 Widget::~Widget()
 {
     delete ui;
@@ -71,6 +85,8 @@ Widget::~Widget()
 void Widget::on_startGameButton_clicked()
 {
     scene->startGame();
+    // add score
+    scene->addScore();
 }
 
 
@@ -97,4 +113,5 @@ void Widget::on_backButton_clicked()
     emit showGameBoard();
     this->close();
 }
+
 

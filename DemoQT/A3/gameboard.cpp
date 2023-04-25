@@ -35,8 +35,13 @@ void GameBoard::onShowGameBoard(){
 
 void GameBoard::on_checkAccountButton_clicked()
 {
-    this->close();
-    emit showMyAccount();
+    this->hide();
+    AccountWindow *accountWindow = new AccountWindow();
+    accountWindow->setUser(my_user);
+    connect(accountWindow, &AccountWindow::backButtonClicked, [=]{
+        this->show();
+    });
+    accountWindow->show();
 }
 
 

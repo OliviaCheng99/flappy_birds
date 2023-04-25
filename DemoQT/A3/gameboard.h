@@ -6,6 +6,7 @@
 #include <QWidget>
 #include "widget.h"
 #include "user.h"
+#include "accountwindow.h"
 
 class LoginWindow;
 

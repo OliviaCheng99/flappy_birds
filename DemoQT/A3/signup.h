@@ -10,6 +10,7 @@
 #include<QJsonDocument>
 #include<QJsonArray>
 #include"gameboard.h"
+#include <QThread>
 
 class AppSettings;
 class LoginWindow;

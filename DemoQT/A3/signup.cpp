@@ -19,12 +19,22 @@ SignUp::~SignUp()
 void SignUp::on_picButton_clicked()
 {
     QString dir_Path = AppSettings::dirPath; // default user path
+    qDebug()<< dir_Path;
+
+    //QThread::currentThread()->setPriority(QThread::NormalPriority);
+
     QString imagePath = QFileDialog::getOpenFileName(
         this,
         "profile picture",
         dir_Path,
-        tr("Images (*.png *.jpg)")
+        tr("Images (*.png *.jpg)"),
+        nullptr,
+        QFileDialog::DontUseNativeDialog
         );
+
+    qDebug()<<imagePath;
+
+
 
     if (!imagePath.isEmpty())
     {
@@ -49,17 +59,42 @@ void SignUp::on_picButton_clicked()
 
         // Construct the destination path
         QString destinationPath = AppSettings::dirPath + "/database/" + newFileName; // maybe here create an image cache dir
+        qDebug()<< destinationPath;
 
         // Copy the file to the destination path
-        if (QFile::copy(imagePath, destinationPath))
+//        QFile file(imagePath);
+
+//        if (file.copy(destinationPath))
+//        {
+//            // Store the new file path
+//            this->profilePicturePath = destinationPath;
+//        }
+//        else
+//        {
+//            // Handle error if the file copy fails
+//            QMessageBox::warning(this, "Error", "Database crashes!");
+//            return;
+//        }
+
+        // Copy the file to the destination path
+        QFile file(imagePath);
+
+        // Ensure the destination directory exists
+        QDir dir(AppSettings::dirPath + "/database/");
+
+        if (!dir.exists()) {
+            dir.mkpath(".");
+        }
+
+        if (file.copy(destinationPath))
         {
             // Store the new file path
-            this->profilePicturePath = destinationPath;
+            this->profilePicturePath = newFileName;
         }
         else
         {
             // Handle error if the file copy fails
-            QMessageBox::warning(this, "Error", "Database crashes!");
+            QMessageBox::warning(this, "Error", "Failed to copy the image file: " + file.errorString());
             return;
         }
 
@@ -110,8 +145,8 @@ void SignUp::on_buttonBox_accepted()
 
     // then hide this sign window and swtich to the game board
     this->close();
-    GameBoard * gameBoard = new  GameBoard;
-    gameBoard->show();
+    emit showLoginWindow();
+
 
 }
 

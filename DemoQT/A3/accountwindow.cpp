@@ -28,9 +28,19 @@ void AccountWindow::setUser(const User &user)
 
     QString imagePath = AppSettings::dirPath + "/database/" + profilePicturePath;
 
-    QPixmap profilePicture(imagePath);
+    //QPixmap profilePicture(imagePath);
 
-    ui->picVal->setPixmap(profilePicture.scaled(ui->picVal->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));// set pic size with label size
+    QPixmap pixmap;
+    if (pixmap.load(imagePath)) {
+        // display it in a QLabel
+        //ui->picVal->setPixmap(profilePicture.scaled(ui->picVal->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        ui->picVal->setPixmap(pixmap.scaled(100, 100, Qt::KeepAspectRatio));
+    } else {
+        qDebug() << "Failed to load image: " << profilePicturePath;
+    }
+
+
+   // ui->picVal->setPixmap(profilePicture.scaled(ui->picVal->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));// set pic size with label size
 }
 
 void AccountWindow::on_backButton_clicked()

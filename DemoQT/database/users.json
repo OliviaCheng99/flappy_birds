@@ -1,17 +1,9 @@
 [
     {
-        "birthDate": "2023-04-25",
-        "firstName": "Bob",
-        "lastName": "Johnson",
-        "password": "Pwd00002",
-        "profilePicture": "bob_profile_picture.jpg",
-        "username": "Bob"
-    },
-    {
+        "bestScore": 18,
         "birthDate": "2097-01-01",
         "firstName": "Alice",
         "lastName": "Lee",
-        "bestScore": 18,
         "password": "Pwd00001",
         "profilePicturePath": "alice123_profile_picture.png",
         "ranking": 1,
@@ -35,5 +27,16 @@
         "profilePicturePath": "codingowl6_profile_picture.png",
         "ranking": 3,
         "username": "codingowl6"
+    },
+    {
+        "bestScore": 0,
+        "birthDate": "2023-04-25",
+        "firstName": "Bob",
+        "lastName": "Johnson",
+        "lastScore": 0,
+        "password": "Pwd00002",
+        "profilePicturePath": "bob123_profile_picture.jpg",
+        "ranking": 0,
+        "username": "bob123"
     }
 ]

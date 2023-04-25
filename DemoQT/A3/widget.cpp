@@ -31,7 +31,6 @@ Widget::Widget(QWidget *parent)
     // add score
     scene->addScore();
 
-
     ui->graphicsView->setScene(scene);
 }
 
@@ -62,5 +61,12 @@ void Widget::on_normalButton_clicked()
 void Widget::on_hardButton_clicked()
 {
     scene->setLevel("Hard");
+}
+
+
+void Widget::on_backButton_clicked()
+{
+    emit showGameBoard();
+    this->hide();
 }
 

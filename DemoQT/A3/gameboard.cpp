@@ -8,6 +8,7 @@ GameBoard::GameBoard(QWidget *parent) :
     ui->setupUi(this);
 
     connect(ui->logoutButton, &QPushButton::clicked, this, &GameBoard::on_logoutButton_clicked);
+    connect(&gameWidget, &Widget::showGameBoard, this, &GameBoard::onShowGameBoard);
 }
 
 GameBoard::~GameBoard()
@@ -24,8 +25,6 @@ void GameBoard::on_logoutButton_clicked()
 
 void GameBoard::onShowGameBoard(){
     this->show();
-
-
 }
 
 void GameBoard::on_checkAccountButton_clicked()

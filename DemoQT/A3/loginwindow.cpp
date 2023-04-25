@@ -13,18 +13,7 @@ LoginWindow::LoginWindow(QWidget *parent)
     , ui(new Ui::LoginWindow)
 {
     ui->setupUi(this);
-    //gameBoard = new GameBoard();
-    //gameBoard->setUser(user);
-    //signupWin = new SignUp();
-    //accountWindow = new AccountWindow();
     user = User();
-
-    //connect( gameBoard, &GameBoard::showLoginWindow, this, &LoginWindow::onShowLoginWindow);
-    //connect(ui->signupButton, &QCommandLinkButton::clicked,this, &LoginWindow::on_signupButton_clicked);
-    //connect(signupWin, &SignUp::showLoginWindow,this, &LoginWindow::onShowLoginWindow);
-    //connect(signupWin, &SignUp::showGameBoard, gameBoard, &GameBoard::onShowGameBoard);
-    //connect(gameBoard, &GameBoard::showMyAccount, this, &LoginWindow::onShowMyAccount);
-
 }
 
 LoginWindow::~LoginWindow()

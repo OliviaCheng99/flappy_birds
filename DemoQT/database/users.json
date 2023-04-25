@@ -12,7 +12,7 @@
         "firstName": "Alice",
         "lastName": "Lee",
         "password": "Pwd00001",
-        "profilePicturePath": "/Users/tacodaddy/Desktop/DemoQT/database/alice123_profile_picture.png",
+        "profilePicturePath": "alice123_profile_picture.png",
         "username": "alice123"
     },
     {
@@ -20,7 +20,18 @@
         "firstName": "Cade",
         "lastName": "li",
         "password": "Pwd00003",
-        "profilePicturePath": "/Users/tacodaddy/Desktop/DemoQT/database/cade123_profile_picture.jpg",
+        "profilePicturePath": "cade123_profile_picture.jpg",
         "username": "cade123"
+    },
+    {
+        "bestScore": 0,
+        "birthDate": "2000-01-01",
+        "firstName": "olivia",
+        "lastName": "cheng",
+        "lastScore": 0,
+        "password": "Psw00000",
+        "profilePicturePath": "codingowl6_profile_picture.png",
+        "ranking": 0,
+        "username": "codingowl6"
     }
 ]

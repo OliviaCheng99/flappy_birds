@@ -64,8 +64,11 @@ QList<User> AppSettings::readUsersFromFile()
 
 
 // Rank users based on their bestScore
-void AppSettings::rankUsersByBestScore(QList<User> &users)
+QString AppSettings::rankUsersByBestScore()
 {
+    QList<User> users = readUsersFromFile();
+    QJsonArray usersArray;
+
     // Sort the users based on their bestScore in descending order
     std::sort(users.begin(), users.end(), [](const User &a, const User &b) {
         return a.getBestScore() > b.getBestScore();
@@ -75,5 +78,10 @@ void AppSettings::rankUsersByBestScore(QList<User> &users)
     for (int i = 0; i < users.size(); ++i)
     {
         users[i].setRanking(i + 1);
+        usersArray.append(users[i].toJsonObject());
     }
+
+    QJsonDocument jsonDoc(usersArray);
+    QString sortedUsersString = QString::fromUtf8(jsonDoc.toJson());
+    return sortedUsersString;
 }

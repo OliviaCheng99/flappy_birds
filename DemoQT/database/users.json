@@ -1,0 +1,26 @@
+[
+    {
+        "birthDate": "1990-05-05",
+        "firstName": "Bob",
+        "lastName": "Johnson",
+        "password": "Pwd00002",
+        "profilePicture": "bob_profile_picture.jpg",
+        "username": "Bob"
+    },
+    {
+        "birthDate": "2097-01-01",
+        "firstName": "Alice",
+        "lastName": "Lee",
+        "password": "Pwd00001",
+        "profilePicturePath": "/Users/tacodaddy/Desktop/DemoQT/database/alice123_profile_picture.png",
+        "username": "alice123"
+    },
+    {
+        "birthDate": "2000-01-01",
+        "firstName": "Cade",
+        "lastName": "li",
+        "password": "Pwd00003",
+        "profilePicturePath": "/Users/tacodaddy/Desktop/DemoQT/database/cade123_profile_picture.jpg",
+        "username": "cade123"
+    }
+]

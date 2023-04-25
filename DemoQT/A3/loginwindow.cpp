@@ -75,9 +75,8 @@ void LoginWindow::on_loginButton_clicked()
 
 
         // render user info to account window
-        //AccountWindow account
-        //this->accountWindow->setUser(user);
-
+        this->accountWindow->setUser(user);
+        this->gameBoard->setUser(user);
     }
     else
     {

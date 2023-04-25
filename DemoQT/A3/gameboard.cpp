@@ -11,6 +11,11 @@ GameBoard::GameBoard(QWidget *parent) :
     ui->setupUi(this);
 }
 
+void GameBoard::setUser(const User &user) {
+    ui->ranking->setNum(user.getRanking());
+    ui->lastScore->setNum(user.getLastScore());
+}
+
 GameBoard::~GameBoard()
 {
     delete ui;

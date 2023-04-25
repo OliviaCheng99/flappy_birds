@@ -13,24 +13,23 @@ LoginWindow::LoginWindow(QWidget *parent)
     , ui(new Ui::LoginWindow)
 {
     ui->setupUi(this);
-    gameBoard = new GameBoard();
-    signupWin = new SignUp();
-    accountWindow = new AccountWindow();
+    //gameBoard = new GameBoard();
+    //gameBoard->setUser(user);
+    //signupWin = new SignUp();
+    //accountWindow = new AccountWindow();
     user = User();
 
-    connect(ui->loginButton, &QPushButton::clicked, this, &LoginWindow::on_loginButton_clicked);
-    connect( gameBoard, &GameBoard::showLoginWindow, this, &LoginWindow::onShowLoginWindow);
-    connect(ui->signupButton, &QCommandLinkButton::clicked,this, &LoginWindow::on_signupButton_clicked);
-    connect(signupWin, &SignUp::showLoginWindow,this, &LoginWindow::onShowLoginWindow);
-    connect(signupWin, &SignUp::showGameBoard, gameBoard, &GameBoard::onShowGameBoard);
-    connect(gameBoard, &GameBoard::showMyAccount, this, &LoginWindow::onShowMyAccount);
+    //connect( gameBoard, &GameBoard::showLoginWindow, this, &LoginWindow::onShowLoginWindow);
+    //connect(ui->signupButton, &QCommandLinkButton::clicked,this, &LoginWindow::on_signupButton_clicked);
+    //connect(signupWin, &SignUp::showLoginWindow,this, &LoginWindow::onShowLoginWindow);
+    //connect(signupWin, &SignUp::showGameBoard, gameBoard, &GameBoard::onShowGameBoard);
+    //connect(gameBoard, &GameBoard::showMyAccount, this, &LoginWindow::onShowMyAccount);
 
 }
 
 LoginWindow::~LoginWindow()
 {
     delete ui;
-    delete gameBoard;  // Delete the gameBoard object
 
 }
 
@@ -76,11 +75,19 @@ void LoginWindow::on_loginButton_clicked()
     {
         // If valid, go to the game board
         this->hide();
+        GameBoard * gameBoard = new GameBoard;
+
+        // on logout button clicked on game board window
+        connect(gameBoard, &GameBoard::showLoginWindow, [=](){
+            this->show();
+        });
+
         gameBoard->show();
 
 
         // render user info to account window
-        this->accountWindow->setUser(user);
+        //AccountWindow account
+        //this->accountWindow->setUser(user);
 
     }
     else
@@ -92,22 +99,24 @@ void LoginWindow::on_loginButton_clicked()
 
 }
 
-void LoginWindow::onShowLoginWindow(){
-    this->show(); // show myself
-
-}
 
 
 void LoginWindow::on_signupButton_clicked()
 {
     this->hide();
+    SignUp* signupWin = new SignUp;
+
+    connect(signupWin, &SignUp::showLoginWindow,[=](){
+        this->show();
+    });
+
     signupWin->show();
 }
 
 void LoginWindow::onShowMyAccount()
 {
-    gameBoard->hide();
-    accountWindow->show();
+   // gameBoard->hide();
+   // accountWindow->show();
 }
 
 

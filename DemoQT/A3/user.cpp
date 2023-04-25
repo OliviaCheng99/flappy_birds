@@ -1,4 +1,6 @@
 #include "user.h"
+#include "appsettings.h"
+
 
 User::User(const QString &username,
            const QString &password,
@@ -76,6 +78,46 @@ void User::updateScore(int newScore)
     {
         my_bestScore = newScore;
     }
+
+
+    //set user score in json file
+    // Read the existing JSON user file
+   QString userFilePath = AppSettings::dirPath +"/database/users.json";
+   QFile userFile(userFilePath);
+   QByteArray userFileData = userFile.readAll();
+   userFile.close();
+
+    QJsonDocument jsonDoc = QJsonDocument::fromJson(userFileData);
+    QJsonArray jsonArray = jsonDoc.array();
+
+
+    // Find the user in the JSON array and update their scores
+    for (int i = 0; i < jsonArray.size(); ++i)
+    {
+        QJsonObject userObject = jsonArray[i].toObject();
+
+        // Check if the username matches
+        if (userObject["username"].toString() == this->my_username)
+        {
+            // Update the scores
+            userObject["lastScore"] = this->my_lastScore;
+            userObject["bestScore"] = this->my_bestScore;
+
+            // Replace the old user object with the updated one
+            jsonArray.replace(i, userObject);
+            break;
+        }
+    }
+
+
+    // Save the updated JSON array to the file
+    jsonDoc.setArray(jsonArray);
+    userFileData = jsonDoc.toJson();
+
+
+   userFile.write(userFileData);
+   userFile.close();
+
 }
 
 

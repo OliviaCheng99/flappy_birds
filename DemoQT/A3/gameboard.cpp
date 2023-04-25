@@ -9,7 +9,6 @@ GameBoard::GameBoard(QWidget *parent) :
     bestScore = 7;
 
     ui->setupUi(this);
-    connect(ui->logoutButton, &QPushButton::clicked, this, &GameBoard::on_logoutButton_clicked);
 }
 
 void GameBoard::setUser(const User &user) {
@@ -24,19 +23,19 @@ GameBoard::~GameBoard()
 
 void GameBoard::on_logoutButton_clicked()
 {
-    this->hide();
+    this->close();
     emit showLoginWindow();
 }
 
 void GameBoard::onShowGameBoard(){
-    qDebug() << "here";
-    this->contentsRect();
+    //qDebug() << "here";
+    //this->contentsRect();
     this->show();
 }
 
 void GameBoard::on_checkAccountButton_clicked()
 {
-    this->hide();
+    this->close();
     emit showMyAccount();
 }
 
@@ -60,4 +59,8 @@ void GameBoard::on_startGame_clicked()
 
     newGameWidget->show();
     this->hide();
+}
+
+void GameBoard:: setUser(User user){
+    my_user = user;
 }

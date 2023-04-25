@@ -109,17 +109,17 @@ void SignUp::on_buttonBox_accepted()
     this->saveUser(new_user);
 
     // then hide this sign window and swtich to the game board
-    this->hide();
-    emit showGameBoard();
+    this->close();
+    GameBoard * gameBoard = new  GameBoard;
+    gameBoard->show();
 
 }
 
 
 void SignUp::on_buttonBox_rejected()
 {
-    this->hide();
+    this->close();
     emit showLoginWindow();
-
 }
 
 

@@ -9,6 +9,7 @@
 #include"user.h"
 #include<QJsonDocument>
 #include<QJsonArray>
+#include"gameboard.h"
 
 class AppSettings;
 class LoginWindow;

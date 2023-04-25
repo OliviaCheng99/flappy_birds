@@ -21,6 +21,7 @@ public:
     explicit GameBoard(QWidget *parent = nullptr);
     void setUser(const User &user);
     ~GameBoard();
+    void setUser(User user);
 
 
 signals:
@@ -34,17 +35,14 @@ public slots:
 
 private slots:
     //void onAccountButtonClicked();
-
     void on_logoutButton_clicked();
-
     void on_checkAccountButton_clicked();
-
     void on_startGame_clicked();
 
 private:
     Ui::GameBoard *ui;
     LoginWindow *loginWindow;
-    User *alice;
+    User my_user;
     int bestScore;
     int lastScore;
 };

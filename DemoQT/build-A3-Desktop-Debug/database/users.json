@@ -1,0 +1,64 @@
+[
+    {
+        "bestScore": 18,
+        "birthDate": "2097-01-01",
+        "firstName": "Alice",
+        "lastName": "Lee",
+        "password": "Pwd00001",
+        "profilePicturePath": "alice123_profile_picture.png",
+        "ranking": 1,
+        "username": "alice123"
+    },
+    {
+        "birthDate": "2000-01-01",
+        "firstName": "Cade",
+        "lastName": "li",
+        "password": "Pwd00003",
+        "profilePicturePath": "cade123_profile_picture.jpg",
+        "username": "cade123"
+    },
+    {
+        "bestScore": 0,
+        "birthDate": "2000-01-01",
+        "firstName": "olivia",
+        "lastName": "cheng",
+        "lastScore": 5,
+        "password": "Psw00000",
+        "profilePicturePath": "codingowl6_profile_picture.png",
+        "ranking": 3,
+        "username": "codingowl6"
+    },
+    {
+        "bestScore": 0,
+        "birthDate": "2023-04-25",
+        "firstName": "Bob",
+        "lastName": "Johnson",
+        "lastScore": 0,
+        "password": "Pwd00002",
+        "profilePicturePath": "bob123_profile_picture.jpg",
+        "ranking": 0,
+        "username": "bob123"
+    },
+    {
+        "bestScore": 0,
+        "birthDate": "2000-01-01",
+        "firstName": "abc",
+        "lastName": "abc",
+        "lastScore": 0,
+        "password": "Pwd00000",
+        "profilePicturePath": "abc_profile_picture.jpg",
+        "ranking": 0,
+        "username": "abc"
+    },
+    {
+        "bestScore": 0,
+        "birthDate": "2000-01-01",
+        "firstName": "abc",
+        "lastName": "abc",
+        "lastScore": 0,
+        "password": "Pwd00000",
+        "profilePicturePath": "abc123_profile_picture.png",
+        "ranking": 0,
+        "username": "abc123"
+    }
+]

@@ -26,6 +26,7 @@ signals:
     void showLoginWindow();
     void showMyAccount();
 
+
 public slots:
     void onShowGameBoard();
 //    void init();

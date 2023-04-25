@@ -43,6 +43,8 @@ void Scene::setUpPillarTimer()
             freezeBirdAndPillarsInPlace();
             setGameOn(false);
             showGameOverGraphics();
+            scoretTextItemInGame = nullptr;
+
 
         });
 
@@ -185,6 +187,7 @@ void Scene::addScore()
     scoretTextItemInGame->setFont(QFont("times", 16));
     scoretTextItemInGame->setPos(-200,-250);
     addItem(scoretTextItemInGame);
+
 }
 
 void Scene::startGame()

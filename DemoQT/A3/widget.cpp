@@ -54,8 +54,8 @@ void Widget::init(){
     // add bird
     scene->addBird();
 
-    // add score
-    scene->addScore();
+//    // add score
+//    scene->addScore();
 
     ui->graphicsView->setScene(scene);
 

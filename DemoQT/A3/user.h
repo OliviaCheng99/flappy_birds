@@ -7,6 +7,9 @@
 #include <QString>
 #include <QDate>
 #include <QJsonObject>
+//#include "appsettings.h"
+#include<QMessageBox>
+
 
 class User
 {

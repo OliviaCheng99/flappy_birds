@@ -5,6 +5,7 @@
 
 #include <QWidget>
 #include "widget.h"
+#include "user.h"
 
 class LoginWindow;
 
@@ -19,6 +20,7 @@ class GameBoard : public QWidget
 public:
     explicit GameBoard(QWidget *parent = nullptr);
     ~GameBoard();
+    void setUser(User user);
 
 
 signals:
@@ -31,16 +33,15 @@ public slots:
 
 private slots:
     //void onAccountButtonClicked();
-
     void on_logoutButton_clicked();
-
     void on_checkAccountButton_clicked();
-
     void on_startGame_clicked();
 
 private:
     Ui::GameBoard *ui;
     LoginWindow *loginWindow;
+    User my_user;
+
 };
 
 #endif // GAMEBOARD_H

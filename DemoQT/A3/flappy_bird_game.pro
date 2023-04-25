@@ -10,35 +10,19 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    accountwindow.cpp \
-    appsettings.cpp \
     birditem.cpp \
-    gameboard.cpp \
     main.cpp \
-    loginwindow.cpp \
     pillaritem.cpp \
     scene.cpp \
-    signup.cpp \
-    user.cpp \
     widget.cpp
 
 HEADERS += \
-    accountwindow.h \
-    appsettings.h \
     birditem.h \
-    gameboard.h \
-    loginwindow.h \
     pillaritem.h \
     scene.h \
-    signup.h \
-    user.h \
     widget.h
 
 FORMS += \
-    accountwindow.ui \
-    gameboard.ui \
-    loginwindow.ui \
-    signup.ui \
     widget.ui
 
 # Default rules for deployment.

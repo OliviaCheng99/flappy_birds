@@ -1,5 +1,6 @@
 #pragma once
 
+#include "widget.h"
 #ifndef LOGINWINDOW_H
 #define LOGINWINDOW_H
 

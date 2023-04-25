@@ -4,6 +4,7 @@
 #define GAMEBOARD_H
 
 #include <QWidget>
+#include "widget.h"
 
 class LoginWindow;
 
@@ -23,6 +24,7 @@ public:
 signals:
     void showLoginWindow();
     void showMyAccount();
+//    void showGameWindow();
 
 public slots:
     void onShowGameBoard();
@@ -34,9 +36,12 @@ private slots:
 
     void on_checkAccountButton_clicked();
 
+    void on_startGame_clicked();
+
 private:
     Ui::GameBoard *ui;
     LoginWindow *loginWindow;
+//    Widget gameWidget;
 };
 
 #endif // GAMEBOARD_H

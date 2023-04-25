@@ -24,7 +24,7 @@ LoginWindow::LoginWindow(QWidget *parent)
     connect(signupWin, &SignUp::showLoginWindow,this, &LoginWindow::onShowLoginWindow);
     connect(signupWin, &SignUp::showGameBoard, gameBoard, &GameBoard::onShowGameBoard);
     connect(gameBoard, &GameBoard::showMyAccount, this, &LoginWindow::onShowMyAccount);
-
+    connect(accountWindow, &AccountWindow::backButtonClicked, gameBoard, &GameBoard::onShowGameBoard);
 }
 
 LoginWindow::~LoginWindow()

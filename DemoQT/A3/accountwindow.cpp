@@ -9,7 +9,8 @@ AccountWindow::AccountWindow(QWidget *parent) :
     ui(new Ui::AccountWindow)
 {
     ui->setupUi(this);
-    connect(ui->backButton, &QPushButton::clicked, this, &AccountWindow::on_backButton_clicked);
+
+//    connect(ui->backButton, &QPushButton::clicked, this, &AccountWindow::on_backButton_clicked);
 }
 
 AccountWindow::~AccountWindow()
@@ -35,6 +36,6 @@ void AccountWindow::setUser(const User &user)
 void AccountWindow::on_backButton_clicked()
 {
     emit backButtonClicked();
-    this->hide();
+    this->close();
 }
 

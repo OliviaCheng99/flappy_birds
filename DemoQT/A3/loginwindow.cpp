@@ -65,7 +65,7 @@ void LoginWindow::on_loginButton_clicked()
         // If valid, go to the game board
         this->hide();
         GameBoard * gameBoard = new GameBoard;
-
+        gameBoard->setUser(user);
         // on logout button clicked on game board window
         connect(gameBoard, &GameBoard::showLoginWindow, [=](){
             this->show();
@@ -102,20 +102,20 @@ void LoginWindow::on_signupButton_clicked()
     signupWin->show();
 }
 
-void LoginWindow::onShowMyAccount()
-{
-   // gameBoard->hide();
-   // accountWindow->show();
-}
+//void LoginWindow::onShowMyAccount()
+//{
+//   // gameBoard->hide();
+//   // accountWindow->show();
+//}
 
 
 void LoginWindow::on_pushButton_clicked()
 {
     Widget *newGameWidget = new Widget();
 
-
     connect(newGameWidget, &Widget::showGameBoard, [=](){
         this->show();
+
     });
 
     newGameWidget->show();

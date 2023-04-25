@@ -29,7 +29,7 @@ signals:
 private slots:
     void on_loginButton_clicked();
     void on_signupButton_clicked();
-    void onShowMyAccount();
+//    void onShowMyAccount();
     void on_pushButton_clicked();
 
 private:

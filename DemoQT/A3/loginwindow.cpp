@@ -13,29 +13,42 @@ LoginWindow::LoginWindow(QWidget *parent)
     , ui(new Ui::LoginWindow)
 {
     ui->setupUi(this);
-    gameBoard = new GameBoard();
-    signupWin = new SignUp();
-    accountWindow = new AccountWindow();
-    user = User();
+//    gameBoard = nullptr;
+//    signupWin = nullptr;
+//    accountWindow = nullptr;
+//    user = User();
 
     connect(ui->loginButton, &QPushButton::clicked, this, &LoginWindow::on_loginButton_clicked);
     connect( gameBoard, &GameBoard::showLoginWindow, this, &LoginWindow::onShowLoginWindow);
     connect(ui->signupButton, &QCommandLinkButton::clicked,this, &LoginWindow::on_signupButton_clicked);
+
     connect(signupWin, &SignUp::showLoginWindow,this, &LoginWindow::onShowLoginWindow);
-    connect(signupWin, &SignUp::showGameBoard, gameBoard, &GameBoard::onShowGameBoard);
+    connect(signupWin, &SignUp::setAccountInfo, this, &LoginWindow::onSetAccountInfo);
+
     connect(gameBoard, &GameBoard::showMyAccount, this, &LoginWindow::onShowMyAccount);
+
+    connect(accountWindow, &AccountWindow::showGameBoard, this, &LoginWindow::onShowGameBoard);
+
+    connect(gameBoard, &GameBoard::logoutsignal, this, &LoginWindow::onDeleteAll);
+
 
 }
 
 LoginWindow::~LoginWindow()
 {
     delete ui;
-    delete gameBoard;  // Delete the gameBoard object
-
+    delete gameBoard;
+    delete accountWindow;
+    delete signupWin;
 }
 
 void LoginWindow::on_loginButton_clicked()
 {
+
+    gameBoard = new GameBoard();
+    accountWindow = new AccountWindow();
+    signupWin = new SignUp();
+    user = User();
     //   Validate the user's credentials
     // Get the username and password from input fields
     QString enteredUsername = ui->usernamelineEdit->text();
@@ -43,7 +56,7 @@ void LoginWindow::on_loginButton_clicked()
 
     // Read the users.json file
     QString userFilePath = AppSettings::dirPath +"/database/users.json";
-    qDebug() << userFilePath;
+    //qDebug() << userFilePath;
     QFile userFile(userFilePath);
     if (!userFile.open(QIODevice::ReadOnly))
     {
@@ -74,13 +87,23 @@ void LoginWindow::on_loginButton_clicked()
 
     if (isValid)
     {
-        // If valid, go to the game board
-        this->hide();
-        gameBoard->show();
 
+        // check user birthday and system date
+        QDate currentDate = QDate::currentDate();
+        QDate birthDate = user.getBirthDate();
+        if (birthDate.month() == currentDate.month() && birthDate.day() == currentDate.day())
+        {
+            //ui->greetingLabel->setText("Happy Birthday!");
+            gameBoard->setGreeting();
+
+        }
 
         // render user info to account window
         this->accountWindow->setUser(user);
+
+        // If valid, go to the game board
+        this->hide();
+        gameBoard->show();
 
     }
     else
@@ -108,5 +131,29 @@ void LoginWindow::onShowMyAccount()
 {
     gameBoard->hide();
     accountWindow->show();
+}
+
+void LoginWindow::onSetAccountInfo()
+{
+    this->accountWindow->setUser(user);
+}
+
+void LoginWindow::onShowGameBoard()
+{
+
+    this->gameBoard->show();
+}
+
+
+void LoginWindow::onDeleteAll()
+{
+//    this->gameBoard->hide();
+    delete gameBoard;
+    delete accountWindow;
+    delete signupWin;/*
+    gameBoard = nullptr;
+    accountWindow = nullptr;
+    signupWin = nullptr;*/
+    this->show();
 }
 

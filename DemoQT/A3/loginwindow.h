@@ -29,6 +29,9 @@ private slots:
     void onShowLoginWindow();
     void on_signupButton_clicked();
     void onShowMyAccount();
+    void onSetAccountInfo();
+    void onShowGameBoard();
+    void onDeleteAll();
 
 private:
     Ui::LoginWindow *ui;

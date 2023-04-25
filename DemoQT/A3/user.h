@@ -12,8 +12,8 @@ class User
 {
 public:
     explicit User();
-    explicit User(const QString &username,const QString &password,const QString &firstName,const QString &lastName,const QDate &birthDate,const QString &profilePicturePath,int lastScore = 0,
-                  int bestScore = 0,int ranking = 0);
+    explicit User(const QString &username,const QString &password,const QString &firstName,const QString &lastName,const QDate &birthDate,const QString &profilePicturePath,qint32 lastScore = 0,
+                  qint32 bestScore = 0, qint32 ranking = 0);
 
     QString getUsername() const;
     QString getPassword() const;
@@ -21,15 +21,15 @@ public:
     QString getLastName() const;
     QDate getBirthDate() const;
     QString getProfilePicturePath() const;
-    int getLastScore() const;
-    int getBestScore() const;
-    int getRanking() const;
-    void setRanking(int ranking);
+    qint32 getLastScore() const;
+    qint32 getBestScore() const;
+    qint32 getRanking() const;
+    void setRanking(qint32 ranking);
 
 
     QJsonObject toJsonObject() const;
     static User fromJsonObject(const QJsonObject &json);
-    void updateScore(int newScore);
+    void updateScore(qint32 newScore);
 
 private:
     QString my_username;
@@ -38,9 +38,9 @@ private:
     QString my_lastName;
     QDate my_birthDate;
     QString my_profilePicturePath;
-    int my_lastScore;
-    int my_bestScore;
-    int my_ranking;
+    qint32 my_lastScore;
+    qint32 my_bestScore;
+    qint32 my_ranking;
 };
 
 #endif // USER_H

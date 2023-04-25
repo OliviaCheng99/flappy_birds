@@ -25,3 +25,11 @@ void AccountWindow::setUser(const User &user)
     ui->picVal->setPixmap(profilePicture.scaled(ui->picVal->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation));// set pic size with label size
 
 }
+
+
+void AccountWindow::on_backButton_clicked()
+{
+    emit showGameBoard();
+    this->close();
+}
+

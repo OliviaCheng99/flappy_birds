@@ -110,6 +110,19 @@
     <string>my account</string>
    </property>
   </widget>
+  <widget class="QLabel" name="greetingVal">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>400</y>
+     <width>461</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>logoutButton</zorder>
   <zorder>label</zorder>
   <zorder>label_2</zorder>
@@ -117,6 +130,7 @@
   <zorder>label_4</zorder>
   <zorder>startGame</zorder>
   <zorder>checkAccountButton</zorder>
+  <zorder>greetingVal</zorder>
  </widget>
  <resources/>
  <connections/>

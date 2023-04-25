@@ -22,6 +22,13 @@ public:
     ~AccountWindow();
     void setUser(const User &user);
 
+
+signals:
+    void showGameBoard();
+
+private slots:
+    void on_backButton_clicked();
+
 private:
     Ui::AccountWindow *ui;
 };

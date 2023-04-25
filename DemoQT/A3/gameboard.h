@@ -18,11 +18,13 @@ class GameBoard : public QWidget
 public:
     explicit GameBoard(QWidget *parent = nullptr);
     ~GameBoard();
+    void setGreeting();
 
 
 signals:
     void showLoginWindow();
     void showMyAccount();
+    void logoutsignal();
 
 public slots:
     void onShowGameBoard();

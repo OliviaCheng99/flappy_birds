@@ -17,17 +17,21 @@ GameBoard::~GameBoard()
     delete ui;
 }
 
+void GameBoard::setGreeting()
+{
+    ui->greetingVal->setText("Happy Birthday!");
+}
+
 
 void GameBoard::on_logoutButton_clicked()
 {
-    this->hide();
-    emit showLoginWindow();
+    //this->hide();
+    //emit showLoginWindow();
+    emit logoutsignal();
 }
 
 void GameBoard::onShowGameBoard(){
     this->show();
-
-
 }
 
 void GameBoard::on_checkAccountButton_clicked()

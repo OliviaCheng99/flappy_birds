@@ -46,9 +46,13 @@ void SignUp::on_picButton_clicked()
 
         // Construct the new file name
         QString newFileName = username + "_profile_picture." + fileExtension;
+        qDebug() << newFileName;
 
         // Construct the destination path
         QString destinationPath = AppSettings::dirPath + "/database/" + newFileName; // maybe here create an image cache dir
+
+        qDebug() << imagePath;
+        qDebug() << destinationPath;
 
         // Copy the file to the destination path
         if (QFile::copy(imagePath, destinationPath))
@@ -110,7 +114,8 @@ void SignUp::on_buttonBox_accepted()
 
     // then hide this sign window and swtich to the game board
     this->hide();
-    emit showGameBoard();
+    emit setAccountInfo();
+    emit showLoginWindow();
 
 }
 

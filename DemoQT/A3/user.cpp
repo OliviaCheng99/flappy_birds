@@ -6,9 +6,9 @@ User::User(const QString &username,
            const QString &lastName,
            const QDate &birthDate,
            const QString &profilePicturePath,
-           int lastScore,
-           int bestScore,
-           int ranking)
+           qint32 lastScore,
+           qint32 bestScore,
+           qint32 ranking)
     : my_username(username),
     my_password(password),
     my_firstName(firstName),
@@ -27,9 +27,9 @@ QString User::getFirstName() const { return my_firstName; }
 QString User::getLastName() const { return my_lastName; }
 QDate User::getBirthDate() const { return my_birthDate; }
 QString User::getProfilePicturePath() const { return my_profilePicturePath; }
-int User::getLastScore() const { return my_lastScore; }
-int User::getBestScore() const { return my_bestScore; }
-int User::getRanking() const { return my_ranking; }
+qint32 User::getLastScore() const { return my_lastScore; }
+qint32 User::getBestScore() const { return my_bestScore; }
+qint32 User::getRanking() const { return my_ranking; }
 void User::setRanking(int ranking) { my_ranking = ranking; }
 
 
@@ -61,14 +61,14 @@ User User::fromJsonObject(const QJsonObject &json)
     QString lastName = json["lastName"].toString();
     QDate birthDate = QDate::fromString(json["birthDate"].toString(), Qt::ISODate);
     QString profilePicturePath = json["profilePicturePath"].toString();
-    int lastScore = json["lastScore"].toInt();
-    int bestScore = json["bestScore"].toInt();
-    int ranking = json["ranking"].toInt();
+    qint32 lastScore = json["lastScore"].toInt();
+    qint32 bestScore = json["bestScore"].toInt();
+    qint32 ranking = json["ranking"].toInt();
 
     return User(username, password, firstName, lastName, birthDate, profilePicturePath, lastScore, bestScore,ranking);
 }
 
-void User::updateScore(int newScore)
+void User::updateScore(qint32 newScore)
 {
     my_lastScore = newScore;
 

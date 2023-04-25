@@ -28,7 +28,7 @@ public:
 
 
 signals:
-    void showGameBoard();
+    void setAccountInfo();
     void showLoginWindow();
 
 private slots:

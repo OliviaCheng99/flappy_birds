@@ -16,8 +16,10 @@ void AppSettings::initializeDirPath()
     dir.cdUp(); // Move up one level to the parent directory of the build folder
     dir.cdUp(); // Move up one level to the parent directory of the build folder
     dir.cdUp(); // Move up another level to the parent directory of the "Contents" folder
-    dir.cdUp();
-    dir.cd("DemoQT"); // Go into the "DemoQT" directory
+    //dir.cdUp();
+    //dir.cd("DemoQT"); // Go into the "DemoQT" directory
+    //qDebug()<< dir.absolutePath();
+
     dirPath = dir.absolutePath(); // Get the absolute path of the parent directory
 }
 

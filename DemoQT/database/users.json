@@ -38,5 +38,27 @@
         "profilePicturePath": "bob123_profile_picture.jpg",
         "ranking": 0,
         "username": "bob123"
+    },
+    {
+        "bestScore": 0,
+        "birthDate": "2000-01-01",
+        "firstName": "abc",
+        "lastName": "abc",
+        "lastScore": 0,
+        "password": "Pwd00000",
+        "profilePicturePath": "abc_profile_picture.jpg",
+        "ranking": 0,
+        "username": "abc"
+    },
+    {
+        "bestScore": 0,
+        "birthDate": "2000-01-01",
+        "firstName": "abc",
+        "lastName": "abc",
+        "lastScore": 0,
+        "password": "Pwd00000",
+        "profilePicturePath": "abc123_profile_picture.png",
+        "ranking": 0,
+        "username": "abc123"
     }
 ]

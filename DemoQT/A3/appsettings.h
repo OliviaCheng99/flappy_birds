@@ -21,7 +21,7 @@ public:
     explicit AppSettings(QObject *parent = nullptr);
     static void initializeDirPath();
     static QList<User> readUsersFromFile();
-    static void rankUsersByBestScore(QList<User> &users);
+    static QString rankUsersByBestScore();
 
     static QString dirPath;
 };

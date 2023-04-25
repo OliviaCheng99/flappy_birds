@@ -19,6 +19,7 @@ class GameBoard : public QWidget
 
 public:
     explicit GameBoard(QWidget *parent = nullptr);
+    void setUser(const User &user);
     ~GameBoard();
 
 

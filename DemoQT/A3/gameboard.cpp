@@ -12,6 +12,11 @@ GameBoard::GameBoard(QWidget *parent) :
     connect(ui->logoutButton, &QPushButton::clicked, this, &GameBoard::on_logoutButton_clicked);
 }
 
+void GameBoard::setUser(const User &user) {
+    ui->ranking->setNum(user.getRanking());
+    ui->lastScore->setNum(user.getLastScore());
+}
+
 GameBoard::~GameBoard()
 {
     delete ui;

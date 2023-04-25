@@ -23,6 +23,7 @@ public:
 //    void setUser(const User &user);
     ~GameBoard();
     void setUser(User user);
+    void showGreeting();
 
 
 signals:

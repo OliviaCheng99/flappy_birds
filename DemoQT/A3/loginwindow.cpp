@@ -66,6 +66,7 @@ void LoginWindow::on_loginButton_clicked()
         this->hide();
         GameBoard * gameBoard = new GameBoard;
         gameBoard->setUser(user);
+        gameBoard->showGreeting();
         // on logout button clicked on game board window
         connect(gameBoard, &GameBoard::showLoginWindow, [=](){
             this->show();

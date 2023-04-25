@@ -73,3 +73,12 @@ void GameBoard:: setUser(User user){
     ui->ranking->setNum(user.getRanking());
     ui->bestScore->setNum(user.getBestScore());
 }
+
+void GameBoard::showGreeting()
+{
+    QDate today = QDate::currentDate();
+
+    if(my_user.getBirthDate().month() == today.month() && my_user.getBirthDate().day() == today.day())
+        ui->greetingLable->setText("Happy Birthday!");
+
+}

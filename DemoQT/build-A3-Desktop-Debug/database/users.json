@@ -60,5 +60,16 @@
         "profilePicturePath": "abc123_profile_picture.png",
         "ranking": 0,
         "username": "abc123"
+    },
+    {
+        "bestScore": 0,
+        "birthDate": "2000-01-01",
+        "firstName": "Dog",
+        "lastName": "Lee",
+        "lastScore": 0,
+        "password": "Pwd00000",
+        "profilePicturePath": "dog123_profile_picture.png",
+        "ranking": 0,
+        "username": "dog123"
     }
 ]
